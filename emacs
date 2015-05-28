@@ -1,24 +1,28 @@
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 (setq-default show-trailing-whitespace 't)
 (show-paren-mode 1)
 (setq completions-format 'vertical)
 
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (when (load "flymake" t)
-  (defun flymake-pyflakes-init ()
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy
-               'flymake-create-temp-inplace))
-       (local-file (file-relative-name
-            temp-file
-            (file-name-directory buffer-file-name))))
-      (list "pycheckers"  (list local-file))))
-   (add-to-list 'flymake-allowed-file-name-masks
-             '("\\.py\\'" flymake-pyflakes-init)))
+ (defun flymake-pyflakes-init ()
+   (let* ((temp-file (flymake-init-create-temp-buffer-copy
+              'flymake-create-temp-inplace))
+      (local-file (file-relative-name
+           temp-file
+           (file-name-directory buffer-file-name))))
+     (list "pycheckers"  (list local-file))))
+  (add-to-list 'flymake-allowed-file-name-masks
+            '("\\.py\\'" flymake-pyflakes-init)))
 (load-library "flymake-cursor")
 
 (defun flymake-display-warning (warning)
@@ -59,16 +63,16 @@ or nil if not found."
 
 
 ;; ropemacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
+;; (require 'pymacs)
+;; (pymacs-load "ropemacs" "rope-")
+;; (setq ropemacs-enable-autoimport t)
 
 
 ;; auto complete
-(add-to-list 'load-path "~/.emacs.d/vendor/auto-complete-1.2")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete-1.2/dict")
-(ac-config-default)
+;; (add-to-list 'load-path "~/.emacs.d/vendor/auto-complete-1.2")
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete-1.2/dict")
+;; (ac-config-default)
 
 
 ;; Smooth Scrolling
@@ -104,7 +108,8 @@ With argument ARG, do this that many times."
 (define-key minibuffer-local-map [M-backspace] 'backward-delete-word)
 (define-key minibuffer-local-map [C-backspace] 'backward-delete-word)
 
-
+(when (display-graphic-p)
+  (invert-face 'default))
 
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
@@ -121,6 +126,7 @@ With argument ARG, do this that many times."
 
 (kill-buffer "*scratch*")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path "~/.emacs.d/el-get")
 
 ;; (unless (require 'el-get nil 'noerror)
 ;;   (with-current-buffer
@@ -131,6 +137,4 @@ With argument ARG, do this that many times."
 
 ;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 ;; (el-get 'sync)
-
-
 

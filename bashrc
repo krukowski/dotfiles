@@ -1,5 +1,6 @@
 export EDITOR="emacs -nw"
 
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
 
 # git autcomplete
