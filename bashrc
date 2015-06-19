@@ -2,6 +2,8 @@ export EDITOR="emacs -nw"
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
+alias cdr="cd ~/src/superfly"
+alias v="cd ~/vagrant/matt-dev/ && vagrant up && vagrant ssh"
 
 # git autcomplete
 source `brew --prefix`/etc/bash_completion

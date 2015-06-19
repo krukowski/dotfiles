@@ -3,6 +3,7 @@
 (setq tab-width 4)
 (setq-default show-trailing-whitespace 't)
 (show-paren-mode 1)
+(setq vc-follow-symlinks nil)
 (setq completions-format 'vertical)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
