@@ -22,6 +22,19 @@
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
+;; rainbow parens
+(custom-set-faces
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "orange"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "pink"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "sky blue"))))
+ '(rainbow-delimiters-depth-5-face ((t (:foreground "yellow"))))
+ '(rainbow-delimiters-depth-6-face ((t (:foreground "orchid"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "green"))))
+ '(rainbow-delimiters-depth-8-face ((t (:foreground "sienna1")))))
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+
+
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (when (load "flymake" t)
  (defun flymake-pyflakes-init ()
