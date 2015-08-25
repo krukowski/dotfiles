@@ -4,7 +4,9 @@
 (setq-default show-trailing-whitespace 't)
 (show-paren-mode 1)
 (setq vc-follow-symlinks nil)
-(setq completions-format 'vertical)
+(setq require-final-newline nil)
+(setq mode-require-final-newline nil)
+                                        ;(setq completions-format 'vertical)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")
@@ -35,7 +37,8 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 
 
-(add-hook 'find-file-hook 'flymake-find-file-hook)
+;; (add-hook 'find-file-hook 'flymake-find-file-hook)
+;; flymake-find-file-hook seems to append new-lines to python files on save
 (when (load "flymake" t)
  (defun flymake-pyflakes-init ()
    (let* ((temp-file (flymake-init-create-temp-buffer-copy
@@ -118,8 +121,8 @@ or nil if not found."
 	        (interactive)
 		    (column-marker-1 79)))
 
-(global-set-key [C-tab] 'next-buffer)
-(global-set-key [C-S-tab] 'previous-buffer)
+;; (global-set-key [C-tab] 'next-buffer)
+;; (global-set-key [C-S-tab] 'previous-buffer)
 
 
 (defun backward-delete-word (arg)
@@ -134,10 +137,10 @@ With argument ARG, do this that many times."
 (when (display-graphic-p)
   (invert-face 'default))
 
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-(setq lua-indent-level 4)
+;(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+;(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+;(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+;(setq lua-indent-level 4)
 
 
 (custom-set-variables
@@ -151,13 +154,13 @@ With argument ARG, do this that many times."
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/el-get")
 
-;; (unless (require 'el-get nil 'noerror)
-;;   (with-current-buffer
-;;       (url-retrieve-synchronously
-;;        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-;;     (goto-char (point-max))
-;;     (eval-print-last-sexp)))
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
 
-;; (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-;; (el-get 'sync)
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
