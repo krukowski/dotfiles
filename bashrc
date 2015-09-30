@@ -18,4 +18,4 @@ source `brew --prefix`/etc/bash_completion
 # set prompt to be a colored path with git_ps1 and error code if nonzero
 # TODO: make this relative
 source ~/src/dotfiles/bin/git-prompt.sh
-export PS1="\e[0;35m\${?##0}\e[0;90m\w\e[m\e[0;34m\$(__git_ps1 '(%s)')\e[0;90m$\e[m "
+export PS1="\[$(tput setaf 5)\]\${?##0}\[$(tput setaf 7)\]\w\[$(tput setaf 4)\]\$(__git_ps1 '(%s)')\[$(tput setaf 7)\]$ \[$(tput sgr0)\]"
