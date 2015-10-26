@@ -21,6 +21,12 @@
  kept-old-versions 2
     version-control t)       ; use versioned backups
 
+;; frame-size and pos
+(when window-system
+  (set-frame-size (selected-frame) 140 60)
+    (if (> (x-display-pixel-width) 1500)
+        (set-frame-position (selected-frame) 1440 0)))
+
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
