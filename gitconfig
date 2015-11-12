@@ -1,0 +1,12 @@
+# This is Git's per-user configuration file.
+[core]
+  user = Matt Krukowski
+  email = matthew@chartbeat.com
+[user]
+  name = Matt Krukowski
+  email = matthew@chartbeat.com
+[push]
+  default = current
+[alias]
+  co = checkout
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
