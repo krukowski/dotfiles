@@ -6,6 +6,7 @@
 (setq vc-follow-symlinks nil)
 (setq require-final-newline nil)
 (setq mode-require-final-newline nil)
+(setq read-file-name-completion-ignore-case nil)
                                         ;(setq completions-format 'vertical)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
