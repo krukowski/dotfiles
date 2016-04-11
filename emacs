@@ -24,10 +24,9 @@
 
 ;; frame-size and pos
 (when window-system
-(frame-height)
-  (set-frame-size (selected-frame) 140 71)
-    (if (> (x-display-pixel-height) 1500)
-        (set-frame-position (selected-frame) -320 -1200)))
+    (when (> (x-display-pixel-height) 1800)
+        (set-frame-position (selected-frame) -320 -1200)
+        (set-frame-size (selected-frame) 140 71)))
 
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -47,53 +46,53 @@
 
 ;; (add-hook 'find-file-hook 'flymake-find-file-hook)
 ;; flymake-find-file-hook seems to append new-lines to python files on save
-(when (load "flymake" t)
- (defun flymake-pyflakes-init ()
-   (let* ((temp-file (flymake-init-create-temp-buffer-copy
-              'flymake-create-temp-inplace))
-      (local-file (file-relative-name
-           temp-file
-           (file-name-directory buffer-file-name))))
-     (list "pycheckers"  (list local-file))))
-  (add-to-list 'flymake-allowed-file-name-masks
-            '("\\.py\\'" flymake-pyflakes-init)))
-(load-library "flymake-cursor")
+;; (when (load "flymake" t)
+;;  (defun flymake-pyflakes-init ()
+;;    (let* ((temp-file (flymake-init-create-temp-buffer-copy
+;;               'flymake-create-temp-inplace))
+;;       (local-file (file-relative-name
+;;            temp-file
+;;            (file-name-directory buffer-file-name))))
+;;      (list "pycheckers"  (list local-file))))
+;;   (add-to-list 'flymake-allowed-file-name-masks
+;;             '("\\.py\\'" flymake-pyflakes-init)))
+;; (load-library "flymake-cursor")
 
-(defun flymake-display-warning (warning)
-  (message warning))
+;; (defun flymake-display-warning (warning)
+;;   (message warning))
 
-(global-set-key (kbd "C-c .") `flymake-mode)
+;; (global-set-key (kbd "C-c .") `flymake-mode)
 
 
 ;; TAGS
-(defun find-file-upwards (file-to-find)
-  "Recursively searches each parent directory starting from the default-directory.
-looking for a file with name file-to-find.  Returns the path to it
-or nil if not found."
-  (labels
-      ((find-file-r (path)
-                    (let* ((parent (file-name-directory path))
-                           (possible-file (concat parent file-to-find)))
-                      (cond
-                       ((file-exists-p possible-file) possible-file) ; Found
-                       ;; The parent of ~ is nil and the parent of / is itself.
-                       ;; Thus the terminating condition for not finding the file
-                       ;; accounts for both.
-                       ((or (null parent) (equal parent (directory-file-name parent))) nil) ; Not found
-                       (t (find-file-r (directory-file-name parent))))))) ; Continue
-    (find-file-r default-directory)))
-(let ((my-tags-file (find-file-upwards "TAGS")))
-  (when my-tags-file
-    (message "Loading tags file: %s" my-tags-file)
-    (visit-tags-table my-tags-file)))
+;; (defun find-file-upwards (file-to-find)
+;;   "Recursively searches each parent directory starting from the default-directory.
+;; looking for a file with name file-to-find.  Returns the path to it
+;; or nil if not found."
+;;   (labels
+;;       ((find-file-r (path)
+;;                     (let* ((parent (file-name-directory path))
+;;                            (possible-file (concat parent file-to-find)))
+;;                       (cond
+;;                        ((file-exists-p possible-file) possible-file) ; Found
+;;                        ;; The parent of ~ is nil and the parent of / is itself.
+;;                        ;; Thus the terminating condition for not finding the file
+;;                        ;; accounts for both.
+;;                        ((or (null parent) (equal parent (directory-file-name parent))) nil) ; Not found
+;;                        (t (find-file-r (directory-file-name parent))))))) ; Continue
+;;     (find-file-r default-directory)))
+;; (let ((my-tags-file (find-file-upwards "TAGS")))
+;;   (when my-tags-file
+;;     (message "Loading tags file: %s" my-tags-file)
+;;     (visit-tags-table my-tags-file)))
 
-(setq tags-revert-without-query t)
+;; (setq tags-revert-without-query t)
 
-(defun create-tags (dir-name)
-    "Create tags file."
-    (shell-command
-     "find -f ~/src/superfly/TAGS ~/src/superfly/ -name '*.py' | xargs etags")
-)
+;; (defun create-tags (dir-name)
+;;     "Create tags file."
+;;     (shell-command
+;;      "find -f ~/src/superfly/TAGS ~/src/superfly/ -name '*.py' | xargs etags")
+;; )
 
 
 ;; ropemacs

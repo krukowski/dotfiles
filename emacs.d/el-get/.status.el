@@ -35,7 +35,7 @@
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (popup status "installed" recipe
-        (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :pkgname "auto-complete/popup-el"))
+        (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :depends cl-lib :pkgname "auto-complete/popup-el"))
  (pymacs status "installed" recipe
          (:name pymacs :description "Interface between Emacs Lisp and Python" :type github :pkgname "pinard/Pymacs" :prepare
                 (progn
@@ -46,7 +46,7 @@
                   (autoload 'pymacs-call "pymacs")
                   (autoload 'pymacs-apply "pymacs"))
                 :build
-                ("make")))
+                (("make"))))
  (rope status "installed" recipe
        (:name rope :description "A python refactoring library" :post-init
               (el-get-envpath-prepend "PYTHONPATH" default-directory)

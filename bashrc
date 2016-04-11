@@ -1,4 +1,4 @@
-export EDITOR="emacs -nw"
+export EDITOR="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9 -nw"
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
