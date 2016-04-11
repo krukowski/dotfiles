@@ -24,9 +24,10 @@
 
 ;; frame-size and pos
 (when window-system
-  (set-frame-size (selected-frame) 140 60)
-    (if (> (x-display-pixel-width) 1500)
-        (set-frame-position (selected-frame) 1440 0)))
+(frame-height)
+  (set-frame-size (selected-frame) 140 71)
+    (if (> (x-display-pixel-height) 1500)
+        (set-frame-position (selected-frame) -320 -1200)))
 
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")

@@ -1,10 +1,10 @@
 # This is Git's per-user configuration file.
 [core]
   user = Matt Krukowski
-  email = matthew@chartbeat.com
+  email = mattk@sevenfifty.com
 [user]
   name = Matt Krukowski
-  email = matthew@chartbeat.com
+  email = mattk@sevenfifty.com
 [push]
   default = current
 [alias]
