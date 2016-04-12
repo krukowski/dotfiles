@@ -294,12 +294,56 @@ equivalents, other structures are converted into Lisp handles.
 
 ;;;***
 
-;;;### (autoloads nil nil ("auto-complete/auto-complete-pkg.el" "el-get/el-get-autoloading.el"
-;;;;;;  "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
-;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
-;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
-;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "fuzzy/fuzzy.el"
-;;;;;;  "popup/popup.el") (22284 3723 15210 0))
+;;;### (autoloads nil "rubocop/rubocop" "rubocop/rubocop.el" (22285
+;;;;;;  6807 0 0))
+;;; Generated autoloads from rubocop/rubocop.el
+
+(autoload 'rubocop-check-project "rubocop/rubocop" "\
+Run on current project.
+
+\(fn)" t nil)
+
+(autoload 'rubocop-autocorrect-project "rubocop/rubocop" "\
+Run on current project.
+
+\(fn)" t nil)
+
+(autoload 'rubocop-check-directory "rubocop/rubocop" "\
+Run on DIRECTORY if present.
+Alternatively prompt user for directory.
+
+\(fn &optional DIRECTORY)" t nil)
+
+(autoload 'rubocop-autocorrect-directory "rubocop/rubocop" "\
+Run on DIRECTORY if present.
+Alternatively prompt user for directory.
+
+\(fn &optional DIRECTORY)" t nil)
+
+(autoload 'rubocop-check-current-file "rubocop/rubocop" "\
+Run on current file.
+
+\(fn)" t nil)
+
+(autoload 'rubocop-autocorrect-current-file "rubocop/rubocop" "\
+Run on current file.
+
+\(fn)" t nil)
+
+(autoload 'rubocop-mode "rubocop/rubocop" "\
+Minor mode to interface with RuboCop.
+
+\(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("auto-complete/auto-complete-pkg.el" "dash/dash-functional.el"
+;;;;;;  "dash/dash.el" "el-get/el-get-autoloading.el" "el-get/el-get-build.el"
+;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
+;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
+;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
+;;;;;;  "el-get/el-get-status.el" "fuzzy/fuzzy.el" "popup/popup.el")
+;;;;;;  (22285 6808 229112 0))
 
 ;;;***
 
