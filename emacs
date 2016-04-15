@@ -128,6 +128,9 @@
 	        (interactive)
 		    (column-marker-1 79)))
 
+(add-hook 'ruby-mode-hook #'rubocop-mode)
+(add-hook 'ruby-mode-hook 'robe-mode)
+
 ;; (global-set-key [C-tab] 'next-buffer)
 ;; (global-set-key [C-S-tab] 'previous-buffer)
 

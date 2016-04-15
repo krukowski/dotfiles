@@ -36,6 +36,8 @@
                   (require 'el-get))))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
+ (inf-ruby status "installed" recipe
+           (:name inf-ruby :description "Inferior Ruby Mode - ruby process in a buffer." :type github :pkgname "nonsequitur/inf-ruby"))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :depends cl-lib :pkgname "auto-complete/popup-el"))
  (pymacs status "installed" recipe
@@ -49,6 +51,11 @@
                   (autoload 'pymacs-apply "pymacs"))
                 :build
                 (("make"))))
+ (robe-mode status "installed" recipe
+            (:name robe-mode :type github :description "Code navigation, documentation lookup and completion for Ruby" :pkgname "dgutov/robe" :website "https://github.com/dgutov/robe" :depends
+                   (inf-ruby)
+                   :post-init
+                   (add-hook 'ruby-mode-hook 'robe-mode)))
  (rope status "installed" recipe
        (:name rope :description "A python refactoring library" :post-init
               (el-get-envpath-prepend "PYTHONPATH" default-directory)
@@ -72,4 +79,9 @@
                     (add-to-list 'pymacs-load-path default-directory))
                   :type git :url "https://github.com/python-rope/ropemode"))
  (rubocop status "installed" recipe
-          (:name rubocop :description "A simple Emacs interface for RuboCop." :type github :pkgname "bbatsov/rubocop-emacs" :depends dash)))
+          (:name rubocop :description "A simple Emacs interface for RuboCop." :type github :pkgname "bbatsov/rubocop-emacs" :depends dash))
+ (rvm status "installed" recipe
+      (:name rvm :description "Emacs integration for rvm" :type github :features rvm :pkgname "senny/rvm.el" :compile "rvm.el" :post-init
+             (rvm-use-default)))
+ (yaml-mode status "installed" recipe
+            (:name yaml-mode :description "Simple major mode to edit YAML file for emacs" :type github :pkgname "yoshiki/yaml-mode")))
