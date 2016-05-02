@@ -26,13 +26,17 @@
 (when window-system
     (when (> (x-display-pixel-height) 1800)
         (set-frame-position (selected-frame) -320 -1200)
-        (set-frame-size (selected-frame) 140 71)))
+        (set-frame-size (selected-frame) 140 73)))
 
 ;; pyflakes
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
 ;; rainbow parens
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(rainbow-delimiters-depth-1-face ((t (:foreground "orange"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "pink"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "chartreuse"))))
@@ -158,7 +162,8 @@ With argument ARG, do this that many times."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(tool-bar-mode nil))
 
 (kill-buffer "*scratch*")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
