@@ -5,10 +5,15 @@ alias ls="ls -G"
 alias cdr="cd ~/src/firewater"
 alias v="cd ~/src/firewater && vagrant up && vagrant ssh"
 alias grep='grep --color=auto'
+alias free="top -l 1 -s 0 | grep PhysMem | sed 's/, /\'$'\n         /g'"
 
 ggrep() {
     ARGS="$@"
-    git ls-files | grep -v "^media" | xargs git grep $ARGS --
+    git ls-files | grep -v "^assets" | grep -v "^app/assets" | xargs git grep $ARGS --
+}
+
+csvless() {
+    csvlook $@ | less -S
 }
 
 # git autcomplete
