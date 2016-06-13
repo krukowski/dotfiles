@@ -34,8 +34,12 @@
                           (feat feats)
                         (unload-feature feat t))))
                   (require 'el-get))))
+ (fiplr status "installed" recipe
+        (:name fiplr :description "Find in Project for Emacs" :type github :pkgname "d11wtq/fiplr" :depends grizzl))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
+ (grizzl status "installed" recipe
+         (:name grizzl :description "Grizzl is a small utility library to be used in other Elisp code needing fuzzy search behaviour. It is optimized for large data sets, using a special type of lookup table and supporting incremental searches (searches where the result can be narrowed-down by only searching what is already matched)." :type github :pkgname "d11wtq/grizzl"))
  (inf-ruby status "installed" recipe
            (:name inf-ruby :description "Inferior Ruby Mode - ruby process in a buffer." :type github :pkgname "nonsequitur/inf-ruby"))
  (popup status "installed" recipe

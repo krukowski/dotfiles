@@ -240,6 +240,116 @@ Display a list of packages.
 
 ;;;***
 
+;;;### (autoloads nil "fiplr/fiplr" "fiplr/fiplr.el" (22363 11570
+;;;;;;  0 0))
+;;; Generated autoloads from fiplr/fiplr.el
+
+(autoload 'fiplr-find-file "fiplr/fiplr" "\
+Runs a completing prompt to find a file from the project.
+The root of the project is the return value of `fiplr-root'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-find-file-other-window "fiplr/fiplr" "\
+Runs a completing prompt to find a file from the project.
+The root of the project is the return value of `fiplr-root'.  The
+file is opened using `find-file-other-window'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-find-file-other-frame "fiplr/fiplr" "\
+Runs a completing prompt to find a file from the project.
+The root of the project is the return value of `fiplr-root'.  The
+file is opened using `find-file-other-frame'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-find-directory "fiplr/fiplr" "\
+Runs a completing prompt to find a directory from the project.
+The root of the project is the return value of `fiplr-root'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-find-directory-other-window "fiplr/fiplr" "\
+Runs a completing prompt to find a directory from the project.
+The root of the project is the return value of `fiplr-root'.  The
+directory is opened using `dired-other-window'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-find-directory-other-frame "fiplr/fiplr" "\
+Runs a completing prompt to find a directory from the project.
+The root of the project is the return value of `fiplr-root'.  The
+directory is opened using `dired-other-frame'.
+
+\(fn)" t nil)
+
+(autoload 'fiplr-clear-cache "fiplr/fiplr" "\
+Clears the internal caches used by fiplr so the project is searched again.
+
+\(fn)" t nil)
+
+;;;***
+
+;;;### (autoloads nil "grizzl/grizzl" "grizzl/grizzl.el" (22363 11569
+;;;;;;  0 0))
+;;; Generated autoloads from grizzl/grizzl.el
+
+(autoload 'grizzl-make-index "grizzl/grizzl" "\
+Makes an index from the list STRINGS for use with `grizzl-search'.
+
+If :PROGRESS-FN is given as a keyword argument, it is called repeatedly
+with integers N and TOTAL.
+
+If :CASE-SENSITIVE is specified as a non-nil keyword argument, the index
+will be created case-sensitive, otherwise it will be case-insensitive.
+
+\(fn STRINGS &rest OPTIONS)" nil nil)
+
+(autoload 'grizzl-search "grizzl/grizzl" "\
+Fuzzy searches for TERM in INDEX prepared with `grizzl-make-index'.
+
+OLD-RESULT may be specified as an existing search result to increment from.
+The result can be read with `grizzl-result-strings'.
+
+\(fn TERM INDEX &optional OLD-RESULT)" nil nil)
+
+(autoload 'grizzl-result-count "grizzl/grizzl" "\
+Returns the number of matches present in RESULT.
+
+\(fn RESULT)" nil nil)
+
+(autoload 'grizzl-result-strings "grizzl/grizzl" "\
+Returns the ordered list of matched strings in RESULT, using INDEX.
+
+If the :START option is specified, results are read from the given offset.
+If the :END option is specified, up to :END results are returned.
+
+\(fn RESULT INDEX &rest OPTIONS)" nil nil)
+
+(autoload 'grizzl-completing-read "grizzl/grizzl" "\
+Performs a completing-read in the minibuffer using INDEX to fuzzy search.
+Each key pressed in the minibuffer filters down the list of matches.
+
+\(fn PROMPT INDEX)" nil nil)
+
+(autoload 'grizzl-selected-result "grizzl/grizzl" "\
+Get the selected string from INDEX in a `grizzl-completing-read'.
+
+\(fn INDEX)" nil nil)
+
+(autoload 'grizzl-set-selection+1 "grizzl/grizzl" "\
+Move the selection up one row in `grizzl-completing-read'.
+
+\(fn)" t nil)
+
+(autoload 'grizzl-set-selection-1 "grizzl/grizzl" "\
+Move the selection down one row in `grizzl-completing-read'.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "inf-ruby/inf-ruby" "inf-ruby/inf-ruby.el"
 ;;;;;;  (22286 28301 0 0))
 ;;; Generated autoloads from inf-ruby/inf-ruby.el
@@ -523,8 +633,9 @@ Simple mode to edit YAML.
 ;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
 ;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
 ;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "fuzzy/fuzzy.el" "popup/popup.el"
-;;;;;;  "robe-mode/build.el") (22289 3605 196451 0))
+;;;;;;  "el-get/el-get-status.el" "fiplr/fiplr-pkg.el" "fuzzy/fuzzy.el"
+;;;;;;  "popup/popup.el" "robe-mode/build.el") (22363 11571 12043
+;;;;;;  0))
 
 ;;;***
 

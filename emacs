@@ -4,8 +4,6 @@
 (setq-default show-trailing-whitespace 't)
 (show-paren-mode 1)
 (setq vc-follow-symlinks nil)
-(setq require-final-newline nil)
-(setq mode-require-final-newline nil)
 (setq read-file-name-completion-ignore-case nil)
                                         ;(setq completions-format 'vertical)
 
@@ -168,6 +166,9 @@ With argument ARG, do this that many times."
 (kill-buffer "*scratch*")
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (add-to-list 'load-path "~/.emacs.d/el-get")
+
+;; Fuzzy search
+(global-set-key (kbd "C-x v") 'fiplr-find-file)
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
