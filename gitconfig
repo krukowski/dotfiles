@@ -10,5 +10,8 @@
 [alias]
   co = checkout
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  rb = rebase
+  br = branch
+  cm = commit
 [rebase]
-	autosquash = true
+  autosquash = true

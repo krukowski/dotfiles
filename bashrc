@@ -4,6 +4,7 @@ export PYTHONIOENCODING=UTF-8
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
 alias cdr="cd ~/src/firewater"
+alias cdp="cd ~/src/parcel"
 alias v="cd ~/src/firewater && vagrant up && vagrant ssh"
 alias grep='grep --color=auto'
 alias free="top -l 1 -s 0 | grep PhysMem | sed 's/, /\'$'\n         /g'"
