@@ -132,6 +132,7 @@
 
 (add-hook 'ruby-mode-hook #'rubocop-mode)
 (add-hook 'ruby-mode-hook 'robe-mode)
+(setq ruby-align-chained-calls 't)
 
 ;; (global-set-key [C-tab] 'next-buffer)
 ;; (global-set-key [C-S-tab] 'previous-buffer)
