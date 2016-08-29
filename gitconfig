@@ -12,6 +12,12 @@
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   rb = rebase
   br = branch
-  cm = commit
+  bd = branch -d
+  ci = commit
+  ro = !git fetch && git rebase origin/master
+  ri = !git fetch && git rebase -i origin/master
+  ft = fetch
+  st = status
+  df = diff
 [rebase]
   autosquash = true
