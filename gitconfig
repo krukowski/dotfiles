@@ -9,6 +9,7 @@
   default = current
 [alias]
   co = checkout
+  com = checkout master
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   rb = rebase
   br = branch
@@ -16,8 +17,13 @@
   ci = commit
   ro = !git fetch && git rebase origin/master
   ri = !git fetch && git rebase -i origin/master
+  mo = !git fetch && git merge origin/master
   ft = fetch
   st = status
   df = diff
+  lg = log
+  pf = push --force-with-lease
+  amend = commit -a --amend --no-edit
+  fb = !git fetch && git checkout origin/master && git checkout -b
 [rebase]
   autosquash = true
