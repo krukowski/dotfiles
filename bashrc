@@ -6,9 +6,20 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
 alias cdr="cd ~/src/firewater"
 alias cdp="cd ~/src/parcel"
+alias cdvp="cd ~/src/parcel/app/models/parsers/products/vendors"
+alias cds="cd ~/src/sfcore"
+alias cdsf="cd ~/src/sevenfifty"
+alias cdd="cd ~/src/distiller"
+alias cdb="cd ~/src/beacon"
+alias cdbx="cd ~/src/boxes"
 alias v="ssh v"
-alias grep='grep --color=auto'
+alias grep='grep --color=auto -I'
 alias free="top -l 1 -s 0 | grep PhysMem | sed 's/, /\'$'\n         /g'"
+alias rtest="ruby -Itest"
+alias logger="ssh -D 56789 logger.sevenfifty.com"
+alias gin="ssh deploy@gin"
+
+shopt -s -o ignoreeof
 
 ggrep() {
     ARGS="$@"
@@ -30,3 +41,4 @@ export PS1="\[$(tput setaf 5)\]\${?##0}\[$(tput setaf 7)\]\w\[$(tput setaf 3)\]\
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.bash_secrets" ]] && source "$HOME/.bash_secrets" # API keys and secrets not checked into git
