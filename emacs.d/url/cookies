@@ -1,0 +1,15 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '((".slack.com"
+  [url-cookie "b" "9ms7qu6gxy4gosck0o0k0ogko" "31-Jan-2028 16:17:34.00 GMT" "/" ".slack.com" nil]
+  [url-cookie "Max-Age" "315532800" "31-Jan-2028 16:17:34.00 GMT" "/" ".slack.com" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

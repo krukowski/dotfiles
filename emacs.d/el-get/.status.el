@@ -10,6 +10,9 @@
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (column-marker status "installed" recipe
                 (:name column-marker :description "Highlight certain character columns" :type emacswiki :features column-marker))
+ (csv-mode status "installed" recipe
+           (:name csv-mode :website "http://www.emacswiki.org/emacs/CsvMode" :description "Major mode for editing CSV (comma separated value) files." :type elpa :prepare
+                  (autoload 'csv-mode "csv-mode" nil t)))
  (dash status "installed" recipe
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (el-get status "installed" recipe
@@ -42,6 +45,30 @@
          (:name grizzl :description "Grizzl is a small utility library to be used in other Elisp code needing fuzzy search behaviour. It is optimized for large data sets, using a special type of lookup table and supporting incremental searches (searches where the result can be narrowed-down by only searching what is already matched)." :type github :pkgname "d11wtq/grizzl"))
  (inf-ruby status "installed" recipe
            (:name inf-ruby :description "Inferior Ruby Mode - ruby process in a buffer." :type github :pkgname "nonsequitur/inf-ruby"))
+ (package status "installed" recipe
+          (:name package :description "ELPA implementation (\"package.el\") from Emacs 24" :builtin "24" :type http :url "http://repo.or.cz/w/emacs.git/blob_plain/ba08b24186711eaeb3748f3d1f23e2c2d9ed0d09:/lisp/emacs-lisp/package.el" :shallow nil :features package :post-init
+                 (progn
+                   (let
+                       ((old-package-user-dir
+                         (expand-file-name
+                          (convert-standard-filename
+                           (concat
+                            (file-name-as-directory default-directory)
+                            "elpa")))))
+                     (when
+                         (file-directory-p old-package-user-dir)
+                       (add-to-list 'package-directory-list old-package-user-dir)))
+                   (setq package-archives
+                         (bound-and-true-p package-archives))
+                   (mapc
+                    (lambda
+                      (pa)
+                      (add-to-list 'package-archives pa 'append))
+                    '(("ELPA" . "http://tromey.com/elpa/")
+                      ("melpa" . "http://melpa.org/packages/")
+                      ("gnu" . "http://elpa.gnu.org/packages/")
+                      ("marmalade" . "http://marmalade-repo.org/packages/")
+                      ("SC" . "http://joseito.republika.pl/sunrise-commander/"))))))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :submodule nil :depends cl-lib :pkgname "auto-complete/popup-el"))
  (pymacs status "installed" recipe
@@ -87,5 +114,7 @@
  (rvm status "installed" recipe
       (:name rvm :description "Emacs integration for rvm" :type github :features rvm :pkgname "senny/rvm.el" :compile "rvm.el" :post-init
              (rvm-use-default)))
+ (web-mode status "installed" recipe
+           (:name web-mode :description "emacs major mode for editing PHP/JSP/ASP HTML templates (with embedded CSS and JS blocks)" :type github :pkgname "fxbois/web-mode"))
  (yaml-mode status "installed" recipe
             (:name yaml-mode :description "Simple major mode to edit YAML file for emacs" :type github :pkgname "yoshiki/yaml-mode")))

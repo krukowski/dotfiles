@@ -60,6 +60,52 @@ Highlight a column." t)
 
 ;;;***
 
+;;;### (autoloads nil "csv-mode/csv-mode" "csv-mode/csv-mode.el"
+;;;;;;  (23282 4993 0 0))
+;;; Generated autoloads from csv-mode/csv-mode.el
+
+(autoload 'csv-mode "csv-mode/csv-mode" "\
+Major mode for editing files of comma-separated value type.
+
+CSV mode is derived from `text-mode', and runs `text-mode-hook' before
+running `csv-mode-hook'.  It turns `auto-fill-mode' off by default.
+CSV mode can be customized by user options in the CSV customization
+group.  The separators are specified by the value of `csv-separators'.
+
+CSV mode commands ignore blank lines and comment lines beginning with
+the value of `csv-comment-start', which delimit \"paragraphs\".
+\"Sexp\" is re-interpreted to mean \"field\", so that `forward-sexp'
+\(\\[forward-sexp]), `kill-sexp' (\\[kill-sexp]), etc. all apply to fields.
+Standard comment commands apply, such as `comment-dwim' (\\[comment-dwim]).
+
+If `font-lock-mode' is enabled then separators, quoted values and
+comment lines are highlighted using respectively `csv-separator-face',
+`font-lock-string-face' and `font-lock-comment-face'.
+
+The user interface (UI) for CSV mode commands is similar to that of
+the standard commands `sort-fields' and `sort-numeric-fields', except
+that if there is no prefix argument then the UI prompts for the field
+index or indices.  In `transient-mark-mode' only: if the region is not
+set then the UI attempts to set it to include all consecutive CSV
+records around point, and prompts for confirmation; if there is no
+prefix argument then the UI prompts for it, offering as a default the
+index of the field containing point if the region was not set
+explicitly.  The region set automatically is delimited by blank lines
+and comment lines, and the number of header lines at the beginning of
+the region given by the value of `csv-header-lines' are skipped.
+
+Sort order is controlled by `csv-descending'.
+
+CSV mode provides the following specific keyboard key bindings:
+
+\\{csv-mode-map}
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.[Cc][Ss][Vv]\\'" . csv-mode))
+
+;;;***
+
 ;;;### (autoloads nil "el-get/el-get" "el-get/el-get.el" (22283 61987
 ;;;;;;  0 0))
 ;;; Generated autoloads from el-get/el-get.el
@@ -611,6 +657,17 @@ switch the current ruby version to any ruby, which is installed with rvm
 
 ;;;***
 
+;;;### (autoloads nil "web-mode/web-mode" "web-mode/web-mode.el"
+;;;;;;  (22564 52906 0 0))
+;;; Generated autoloads from web-mode/web-mode.el
+
+(autoload 'web-mode "web-mode/web-mode" "\
+Major mode for editing web templates.
+
+\(fn)" t nil)
+
+;;;***
+
 ;;;### (autoloads nil "yaml-mode/yaml-mode" "yaml-mode/yaml-mode.el"
 ;;;;;;  (22289 3604 0 0))
 ;;; Generated autoloads from yaml-mode/yaml-mode.el
@@ -628,14 +685,14 @@ Simple mode to edit YAML.
 
 ;;;***
 
-;;;### (autoloads nil nil ("auto-complete/auto-complete-pkg.el" "dash/dash-functional.el"
-;;;;;;  "dash/dash.el" "el-get/el-get-autoloading.el" "el-get/el-get-build.el"
-;;;;;;  "el-get/el-get-byte-compile.el" "el-get/el-get-core.el" "el-get/el-get-custom.el"
-;;;;;;  "el-get/el-get-dependencies.el" "el-get/el-get-install.el"
-;;;;;;  "el-get/el-get-methods.el" "el-get/el-get-notify.el" "el-get/el-get-recipes.el"
-;;;;;;  "el-get/el-get-status.el" "fiplr/fiplr-pkg.el" "fuzzy/fuzzy.el"
-;;;;;;  "popup/popup.el" "robe-mode/build.el") (22363 11571 12043
-;;;;;;  0))
+;;;### (autoloads nil nil ("auto-complete/auto-complete-pkg.el" "csv-mode/csv-mode-autoloads.el"
+;;;;;;  "csv-mode/csv-mode-pkg.el" "dash/dash-functional.el" "dash/dash.el"
+;;;;;;  "el-get/el-get-autoloading.el" "el-get/el-get-build.el" "el-get/el-get-byte-compile.el"
+;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
+;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
+;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "fiplr/fiplr-pkg.el"
+;;;;;;  "fuzzy/fuzzy.el" "popup/popup.el" "robe-mode/build.el") (23282
+;;;;;;  4998 602130 0))
 
 ;;;***
 
