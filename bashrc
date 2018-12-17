@@ -12,6 +12,7 @@ alias cdsf="cd ~/src/sevenfifty"
 alias cdd="cd ~/src/distiller"
 alias cdb="cd ~/src/beacon"
 alias cdbx="cd ~/src/boxes"
+alias cdo="cd ~/src/backlog"
 alias v="ssh v"
 alias grep='grep --color=auto -I'
 alias free="top -l 1 -s 0 | grep PhysMem | sed 's/, /\'$'\n         /g'"
