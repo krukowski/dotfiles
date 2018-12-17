@@ -8,6 +8,13 @@
                          (ac-config-default))))
  (cl-lib status "installed" recipe
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
+ (coffee-mode status "installed" recipe
+              (:name coffee-mode :website "http://ozmm.org/posts/coffee_mode.html" :description "Emacs Major Mode for CoffeeScript" :type github :pkgname "defunkt/coffee-mode" :features coffee-mode :prepare
+                     (progn
+                       (add-to-list 'auto-mode-alist
+                                    '("\\.coffee$" . coffee-mode))
+                       (add-to-list 'auto-mode-alist
+                                    '("Cakefile" . coffee-mode)))))
  (column-marker status "installed" recipe
                 (:name column-marker :description "Highlight certain character columns" :type emacswiki :features column-marker))
  (csv-mode status "installed" recipe

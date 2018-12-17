@@ -51,6 +51,27 @@ See `auto-complete-mode' for more information on Auto-Complete mode.
 
 ;;;***
 
+;;;### (autoloads nil "coffee-mode/coffee-mode" "coffee-mode/coffee-mode.el"
+;;;;;;  (23523 7215 0 0))
+;;; Generated autoloads from coffee-mode/coffee-mode.el
+
+(autoload 'coffee-mode "coffee-mode/coffee-mode" "\
+Major mode for editing CoffeeScript.
+
+\(fn)" t nil)
+
+(add-to-list 'auto-mode-alist '("\\.coffee\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.iced\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("Cakefile\\'" . coffee-mode))
+
+(add-to-list 'auto-mode-alist '("\\.cson\\'" . coffee-mode))
+
+(add-to-list 'interpreter-mode-alist '("coffee" . coffee-mode))
+
+;;;***
+
 ;;;### (autoloads nil "column-marker/column-marker" "column-marker/column-marker.el"
 ;;;;;;  (22283 55663 0 0))
 ;;; Generated autoloads from column-marker/column-marker.el
@@ -691,8 +712,8 @@ Simple mode to edit YAML.
 ;;;;;;  "el-get/el-get-core.el" "el-get/el-get-custom.el" "el-get/el-get-dependencies.el"
 ;;;;;;  "el-get/el-get-install.el" "el-get/el-get-methods.el" "el-get/el-get-notify.el"
 ;;;;;;  "el-get/el-get-recipes.el" "el-get/el-get-status.el" "fiplr/fiplr-pkg.el"
-;;;;;;  "fuzzy/fuzzy.el" "popup/popup.el" "robe-mode/build.el") (23282
-;;;;;;  4998 602130 0))
+;;;;;;  "fuzzy/fuzzy.el" "popup/popup.el" "robe-mode/build.el") (23523
+;;;;;;  7215 896848 0))
 
 ;;;***
 
