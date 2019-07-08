@@ -1,6 +1,7 @@
 export EDITOR="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9 -nw"
 export PYTHONIOENCODING=UTF-8
 export LESS=Ri
+# export VAGRANT_SERVER_URL="https://vagrantcloud.com"
 
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs-x86_64-10_9"
 alias ls="ls -G"
@@ -19,6 +20,8 @@ alias free="top -l 1 -s 0 | grep PhysMem | sed 's/, /\'$'\n         /g'"
 alias rtest="ruby -Itest"
 alias logger="ssh -D 56789 logger.sevenfifty.com"
 alias gin="ssh deploy@gin"
+alias prdb="psql $PROD_DATABASE_URL"
+alias logdb="psql $PROD_LOG_DATABASE_URL"
 
 shopt -s -o ignoreeof
 
